@@ -4,7 +4,6 @@ let listdata = [
   { name: "Read my new books", priority: "low", id: 3 },
   {
     name: "Purchase some Brew mi and alot of peanut pro",
-
     priority: "high",
     id: 4,
   },
