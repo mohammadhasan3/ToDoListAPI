@@ -32,7 +32,7 @@ exports.taskUpdate = (req, res) => {
   const foundTask = listdata.find((task) => task.id === +taskId);
   if (foundTask) {
     for (const key in req.body) foundTask[key] = req.body[key];
-    for (const completed in req.body) foundTask[completed] = true;
+    // for (const completed in req.body) foundTask[completed] = true;
     res.status(204).end();
   } else {
     res.status(404).json({ message: "task not found" });
