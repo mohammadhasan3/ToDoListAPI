@@ -15,26 +15,26 @@ exports.taskCreate = (req, res) => {
   res.status(201).json(newTask);
 };
 
-// exports.funkoDelete = (req, res) => {
-//   const { funkoId } = req.params;
-//   const foundFunko = funkos.find((funko) => funko.id === +funkoId);
-//   if (foundFunko) {
-//     funkos = funkos.filter((funko) => funko.id !== +funkoId);
-//     res.status(204).end();
-//     console.log("funkos", funkos);
-//   } else {
-//     res.status(404).json({ message: "Funko not found" });
-//   }
-// };
+exports.taskDelete = (req, res) => {
+  const { taskId } = req.params;
+  const foundTask = listdata.find((task) => task.id === +taskId);
+  if (foundTask) {
+    listdata = listdata.filter((task) => task.id !== +taskId);
+    res.status(204).end();
+    console.log("listdata", listdata);
+  } else {
+    res.status(404).json({ message: "Task not found" });
+  }
+};
 
-// exports.funkoUpdate = (req, res) => {
-//   const { funkoId } = req.params;
-//   const foundFunko = funkos.find((funko) => funko.id === +funkoId);
-//   if (foundFunko) {
-//     for (const key in req.body) foundFunko[key] = req.body[key];
-//     foundFunko.slug = slugify(req.body.name, { lower: true });
-//     res.status(204).end();
-//   } else {
-//     res.status(404).json({ message: "Funko not found" });
-//   }
-// };
+exports.taskUpdate = (req, res) => {
+  const { taskId } = req.params;
+  const foundTask = listdata.find((task) => task.id === +taskId);
+  if (foundTask) {
+    for (const key in req.body) foundTask[key] = req.body[key];
+    for (const completed in req.body) foundTask[completed] = true;
+    res.status(204).end();
+  } else {
+    res.status(404).json({ message: "task not found" });
+  }
+};
