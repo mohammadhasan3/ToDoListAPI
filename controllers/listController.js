@@ -10,7 +10,8 @@ exports.viewList = (req, res) => {
 
 exports.taskCreate = (req, res) => {
   const id = listdata[listdata.length - 1].id + 1;
-  const newTask = { ...req.body, id };
+  const completed = false;
+  const newTask = { ...req.body, id , completed};
   listdata.push(newTask);
   res.status(201).json(newTask);
 };
